@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite1" parallel="false" >
+    <test name="Test" >
+        <parameter name ="platformName" value ="Android"/>
+        <parameter name ="platformVersion" value ="Android"/>
+        <parameter name ="deviceName" value ="Pixel_2"/>
+        <classes>
+            <class name="qa.mobile.test1"/>
+        </classes>
+    </test>
+</suite>
