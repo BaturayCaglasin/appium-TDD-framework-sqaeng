@@ -5,7 +5,7 @@
         <parameter name ="platformVersion" value ="Android"/>
         <parameter name ="deviceName" value ="Pixel_2"/>
         <classes>
-            <class name="qa.mobile.test1"/>
+            <class name="com.qa.tests.LoginTests"/>
         </classes>
     </test>
 </suite>

@@ -22,8 +22,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    protected AppiumDriver driver;
-    protected Properties props;
+    protected static AppiumDriver driver;
+    protected static Properties props;
 
 
     public BaseTest() {
@@ -90,7 +90,7 @@ public class BaseTest {
 
 
     @AfterTest
-    public void afterTest(){
+    public void afterTest() {
         driver.quit();
     }
 }
