@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite1" parallel="false" >
-    <test name="Test" >
-        <parameter name ="platformName" value ="Android"/>
-        <parameter name ="platformVersion" value ="Android"/>
-        <parameter name ="deviceName" value ="Pixel_2"/>
+<suite name="Suite1" parallel="false">
+    <listeners>
+    <listener class-name="com.qa.listeners.TestListener"/>
+    </listeners>
+    <test name="Test">
         <classes>
+            <parameter name="platformName" value="Android"/>
+            <parameter name="platformVersion" value="Android"/>
+            <parameter name="deviceName" value="Pixel_2"/>
             <class name="com.qa.tests.LoginTests"/>
         </classes>
     </test>

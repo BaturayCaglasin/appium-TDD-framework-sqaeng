@@ -17,6 +17,7 @@ import org.testng.annotations.Parameters;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,10 @@ public class BaseTest {
 
     protected static AppiumDriver driver;
     protected static Properties props;
+    protected static HashMap<String, String> strings = new HashMap<String, String>();
+    InputStream inputStream;
+    InputStream stringsis;
+    TestUtils utils;
 
 
     public BaseTest() {
@@ -39,11 +44,16 @@ public class BaseTest {
         try {
             props = new Properties();
             String propFileName = "config.properties";
-            InputStream inputStream;
+            String xmlFileName = "Strings/strings.xml";
+
 
             inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
             props.load(inputStream);
 
+
+            stringsis = getClass().getClassLoader().getResourceAsStream(xmlFileName);
+            utils = new TestUtils();
+            strings = utils.parseStringXML(stringsis);
 
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setCapability("platformName", platformName);
@@ -63,6 +73,15 @@ public class BaseTest {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
+        } finally {
+            if (inputStream != null) {
+                inputStream.close();
+            }
+            if (stringsis != null) {
+                stringsis.close();
+            }
+
         }
 
     }
